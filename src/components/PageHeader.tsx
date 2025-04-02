@@ -14,17 +14,20 @@ const PageHeader: React.FC<PageHeaderProps> = ({
 }) => {
   return (
     <div 
-      className="relative h-[40vh] md:h-[50vh] flex items-center justify-center"
+      className="relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${backgroundImage})`,
+        backgroundImage: `linear-gradient(to right, rgba(26, 31, 44, 0.9), rgba(139, 92, 246, 0.7)), url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
-      <div className="text-center text-white px-4">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 animate-fade-in">{title}</h1>
+      <div className="absolute inset-0 bg-gradient-to-r from-gym-dark/80 to-gym-purple/40 z-10"></div>
+      <div className="text-center text-white px-4 z-20 max-w-4xl mx-auto">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 animate-fade-in tracking-tight">
+          {title}
+        </h1>
         {subtitle && (
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-fade-in animation-delay-100">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-fade-in animation-delay-100 opacity-90 font-light">
             {subtitle}
           </p>
         )}

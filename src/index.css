@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 0 72% 63%;
+    --primary: 262 83% 64%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 220 14% 24%;
@@ -33,9 +33,9 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 0 72% 63%;
+    --ring: 262 83% 64%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -57,7 +57,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 0 72% 63%;
+    --primary: 262 83% 64%;
     --primary-foreground: 0 0% 93%;
 
     --secondary: 220 14% 24%;
@@ -99,7 +99,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
-    @apply font-bold;
+    @apply font-bold tracking-tight;
   }
 }
 
@@ -109,15 +109,15 @@
   }
   
   .btn-primary {
-    @apply bg-gym-red hover:bg-opacity-90 text-white px-6 py-3 rounded-md font-semibold transition-all duration-300;
+    @apply bg-gym-purple hover:bg-opacity-90 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300;
   }
   
   .btn-secondary {
-    @apply bg-gym-dark hover:bg-gym-gray text-white px-6 py-3 rounded-md font-semibold transition-all duration-300;
+    @apply bg-gym-dark hover:bg-gym-gray text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300;
   }
   
   .btn-outline {
-    @apply border-2 border-gym-red text-gym-red hover:bg-gym-red hover:text-white px-6 py-3 rounded-md font-semibold transition-all duration-300;
+    @apply border-2 border-gym-purple text-gym-purple hover:bg-gym-purple hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300;
   }
   
   .section-padding {
@@ -125,7 +125,11 @@
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 rounded-xl overflow-hidden;
+  }
+  
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-sm shadow-lg rounded-xl border border-white/20;
   }
 }
 

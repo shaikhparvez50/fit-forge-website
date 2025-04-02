@@ -64,10 +64,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				gym: {
-					red: '#F05454',
-					dark: '#222831',
+					purple: '#8B5CF6', // Main purple instead of red
+					dark: '#1A1F2C',  // Darker shade for more modern look
 					gray: '#393E46',
-					light: '#EEEEEE'
+					light: '#F8FAFC'
 				}
 			},
 			borderRadius: {
