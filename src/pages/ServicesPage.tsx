@@ -106,8 +106,8 @@ const ServicesPage = () => {
       <section className="py-16 md:py-24 bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our <span className="text-gym-red">Services</span></h2>
-            <div className="w-20 h-1 bg-gym-red mx-auto mb-4"></div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our <span className="text-gym-purple">Services</span></h2>
+            <div className="w-20 h-1 bg-gym-purple mx-auto mb-4"></div>
             <p className="text-lg text-gym-gray max-w-3xl mx-auto">
               We offer a comprehensive range of fitness services designed to help you reach your health and wellness goals.
             </p>
@@ -125,7 +125,7 @@ const ServicesPage = () => {
                   <img 
                     src={service.image} 
                     alt={service.name} 
-                    className="rounded-lg shadow-lg w-full h-80 object-cover"
+                    className="rounded-lg shadow-lg w-full h-80 object-cover hover:transform hover:scale-105 transition-all duration-300"
                   />
                 </div>
                 <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
@@ -134,12 +134,14 @@ const ServicesPage = () => {
                   <ul className="space-y-3 mb-6">
                     {service.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <CheckCircle2 className="text-gym-red mr-2 mt-1" size={18} />
+                        <CheckCircle2 className="text-gym-purple mr-2 mt-1" size={18} />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <Button className="bg-gym-red hover:bg-opacity-90">Learn More</Button>
+                  <Link to={`/services/${service.id}`}>
+                    <Button className="bg-gym-purple hover:bg-opacity-90 shadow-lg hover:shadow-xl transform transition hover:-translate-y-1">Learn More</Button>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -151,8 +153,8 @@ const ServicesPage = () => {
       <section className="py-16 md:py-24 bg-gym-light">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our <span className="text-gym-red">Facilities</span></h2>
-            <div className="w-20 h-1 bg-gym-red mx-auto mb-4"></div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our <span className="text-gym-purple">Facilities</span></h2>
+            <div className="w-20 h-1 bg-gym-purple mx-auto mb-4"></div>
             <p className="text-lg text-gym-gray max-w-3xl mx-auto">
               Experience our state-of-the-art facilities designed to enhance your workout and recovery.
             </p>
@@ -160,7 +162,7 @@ const ServicesPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-lg text-center card-hover">
-              <div className="w-16 h-16 bg-gym-red rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-gym-purple rounded-full flex items-center justify-center mx-auto mb-6">
                 <Dumbbell size={32} className="text-white" />
               </div>
               <h3 className="text-xl font-bold mb-3">Strength Zone</h3>
@@ -170,7 +172,7 @@ const ServicesPage = () => {
             </div>
             
             <div className="bg-white p-8 rounded-lg shadow-lg text-center card-hover">
-              <div className="w-16 h-16 bg-gym-red rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-gym-purple rounded-full flex items-center justify-center mx-auto mb-6">
                 <Heart size={32} className="text-white" />
               </div>
               <h3 className="text-xl font-bold mb-3">Cardio Area</h3>
@@ -180,7 +182,7 @@ const ServicesPage = () => {
             </div>
             
             <div className="bg-white p-8 rounded-lg shadow-lg text-center card-hover">
-              <div className="w-16 h-16 bg-gym-red rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-gym-purple rounded-full flex items-center justify-center mx-auto mb-6">
                 <Users size={32} className="text-white" />
               </div>
               <h3 className="text-xl font-bold mb-3">Class Studios</h3>
@@ -190,7 +192,7 @@ const ServicesPage = () => {
             </div>
             
             <div className="bg-white p-8 rounded-lg shadow-lg text-center card-hover">
-              <div className="w-16 h-16 bg-gym-red rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-gym-purple rounded-full flex items-center justify-center mx-auto mb-6">
                 <Clock size={32} className="text-white" />
               </div>
               <h3 className="text-xl font-bold mb-3">Recovery Area</h3>
@@ -201,7 +203,7 @@ const ServicesPage = () => {
           </div>
 
           <div className="mt-12 text-center">
-            <Button className="bg-gym-red hover:bg-opacity-90">
+            <Button className="bg-gym-purple hover:bg-opacity-90 shadow-lg hover:shadow-xl transform transition hover:-translate-y-1 text-lg px-6 py-3">
               Take a Virtual Tour
             </Button>
           </div>

@@ -66,27 +66,29 @@ const ContactPage = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Get in <span className="text-gym-red">Touch</span></h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Get in <span className="text-gym-purple">Touch</span></h2>
               <p className="text-lg mb-8">
                 We're here to help with any questions you might have about our facilities, classes, membership options, or anything else. Feel free to reach out!
               </p>
               
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="bg-gym-red p-3 rounded-lg text-white mr-4">
+                  <div className="bg-gym-purple p-3 rounded-lg text-white mr-4">
                     <MapPin size={24} />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-1">Our Location</h3>
                     <p className="text-gym-gray">
-                      123 Fitness Avenue<br />
-                      Workout City, WC 10234
+                      Ganesh Nagar, Tilwada<br />
+                      Gate Number 177<br />
+                      Pimpri Chinchwad, Pune<br />
+                      Maharashtra, India
                     </p>
                   </div>
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="bg-gym-red p-3 rounded-lg text-white mr-4">
+                  <div className="bg-gym-purple p-3 rounded-lg text-white mr-4">
                     <Phone size={24} />
                   </div>
                   <div>
@@ -99,7 +101,7 @@ const ContactPage = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="bg-gym-red p-3 rounded-lg text-white mr-4">
+                  <div className="bg-gym-purple p-3 rounded-lg text-white mr-4">
                     <Mail size={24} />
                   </div>
                   <div>
@@ -112,7 +114,7 @@ const ContactPage = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="bg-gym-red p-3 rounded-lg text-white mr-4">
+                  <div className="bg-gym-purple p-3 rounded-lg text-white mr-4">
                     <Clock size={24} />
                   </div>
                   <div>
@@ -211,7 +213,7 @@ const ContactPage = () => {
                   
                   <Button 
                     type="submit" 
-                    className="w-full bg-gym-red hover:bg-opacity-90"
+                    className="w-full bg-gym-purple hover:bg-opacity-90"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
@@ -227,16 +229,16 @@ const ContactPage = () => {
       <section className="py-16 md:py-24 bg-gym-light">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Find <span className="text-gym-red">Us</span></h2>
-            <div className="w-20 h-1 bg-gym-red mx-auto mb-4"></div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Find <span className="text-gym-purple">Us</span></h2>
+            <div className="w-20 h-1 bg-gym-purple mx-auto mb-4"></div>
             <p className="text-lg text-gym-gray max-w-3xl mx-auto">
-              We are conveniently located in the heart of the city with ample parking and easy access to public transportation.
+              We are conveniently located in Ganesh Nagar, Pimpri Chinchwad with easy access.
             </p>
           </div>
           
           <div className="rounded-lg overflow-hidden shadow-lg">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.3059353029!2d-74.25986548248684!3d40.69714941638866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1619712417296!5m2!1sen!2s" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.863363211772!2d73.7918025!3d18.6310275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b9eab1a95c3b%3A0xafb095b0cb002719!2sGanesh%20Nagar%2C%20Pimpri-Chinchwad%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1712167005034!5m2!1sen!2sin" 
               width="100%" 
               height="500" 
               style={{ border: 0 }} 
@@ -244,6 +246,7 @@ const ContactPage = () => {
               loading="lazy"
               title="Gym Location"
               className="w-full"
+              referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
           
@@ -253,27 +256,27 @@ const ContactPage = () => {
               <div>
                 <h4 className="font-semibold mb-2">By Car</h4>
                 <p className="text-gym-gray mb-4">
-                  Ample parking available on-site. Enter from Fitness Avenue and follow signs to the gym parking area.
+                  Parking available around Ganesh Nagar. Enter through Tilwada Gate Number 177.
                 </p>
                 <h4 className="font-semibold mb-2">By Public Transport</h4>
                 <p className="text-gym-gray">
-                  Take bus routes 10, 15, or 22 to Fitness Avenue stop. We're just a 2-minute walk from there.
+                  Take buses 250, 275 or PMT buses to Ganesh Nagar stop. We're just a 3-minute walk from there.
                 </p>
               </div>
               <div>
                 <h4 className="font-semibold mb-2">Nearby Landmarks</h4>
                 <ul className="text-gym-gray space-y-1">
                   <li className="flex items-start">
-                    <CheckCircle2 className="text-gym-red mr-2 mt-1" size={16} />
-                    <span>2 blocks from Central Shopping Mall</span>
+                    <CheckCircle2 className="text-gym-purple mr-2 mt-1" size={16} />
+                    <span>500m from Pimpri Market</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle2 className="text-gym-red mr-2 mt-1" size={16} />
-                    <span>Across from City Park</span>
+                    <CheckCircle2 className="text-gym-purple mr-2 mt-1" size={16} />
+                    <span>Near Tilwada Gate</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle2 className="text-gym-red mr-2 mt-1" size={16} />
-                    <span>Next to Downtown Coffee Shop</span>
+                    <CheckCircle2 className="text-gym-purple mr-2 mt-1" size={16} />
+                    <span>Opposite to Ganesh Temple</span>
                   </li>
                 </ul>
               </div>
@@ -287,11 +290,11 @@ const ContactPage = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready for a <span className="text-gym-red">Free Trial</span>?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready for a <span className="text-gym-purple">Free Trial</span>?</h2>
               <p className="text-xl mb-6">
                 Experience FLEXGYM firsthand with a complimentary day pass. No pressure, no commitments—just a chance to see what we have to offer.
               </p>
-              <Button size="lg" className="bg-gym-red hover:bg-opacity-90">
+              <Button size="lg" className="bg-gym-purple hover:bg-opacity-90 text-white hover:translate-y-[-2px] transition-all duration-300">
                 Get Your Free Pass
               </Button>
             </div>
@@ -302,19 +305,19 @@ const ContactPage = () => {
               </p>
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <Clock size={20} className="mr-2 text-gym-red" />
+                  <Clock size={20} className="mr-2 text-gym-purple" />
                   <span>Tours available 7 days a week</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle2 size={20} className="mr-2 text-gym-red" />
+                  <CheckCircle2 size={20} className="mr-2 text-gym-purple" />
                   <span>No obligation to join</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle2 size={20} className="mr-2 text-gym-red" />
+                  <CheckCircle2 size={20} className="mr-2 text-gym-purple" />
                   <span>Personalized facility overview</span>
                 </div>
               </div>
-              <Button className="w-full mt-6 bg-white text-gym-dark hover:bg-opacity-90">
+              <Button className="w-full mt-6 bg-white text-gym-dark hover:bg-opacity-90 hover:translate-y-[-2px] transition-all duration-300">
                 Book a Tour
               </Button>
             </div>
