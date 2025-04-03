@@ -3,8 +3,46 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Dumbbell, Users, Award, Clock } from 'lucide-react';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const HomePage = () => {
+  const testimonials = [
+    {
+      name: "John Smith",
+      role: "Member for 2 years",
+      content: "FLEXGYM completely transformed my fitness journey. The trainers are exceptional and the facilities are top-notch.",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+    },
+    {
+      name: "Sarah Johnson",
+      role: "Member for 1 year",
+      content: "The community at FLEXGYM is what keeps me coming back. Everyone is so supportive and the results speak for themselves!",
+      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+    },
+    {
+      name: "Mike Davis",
+      role: "Member for 3 years",
+      content: "I've been to many gyms, but none compare to the quality and atmosphere of FLEXGYM. It's become my second home.",
+      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+    }
+  ];
+
+  const galleryImages = [
+    "https://images.unsplash.com/photo-1574680096145-d05b474e2155?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    "https://images.unsplash.com/photo-1584466977773-e625c37cdd50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    "https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    "https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+  ];
+  
   return (
     <>
       {/* Hero Section */}
@@ -98,6 +136,41 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Image Gallery Section */}
+      <section className="py-16 md:py-24 bg-gym-dark">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Our <span className="text-gym-purple">Gallery</span></h2>
+            <div className="w-20 h-1 bg-gym-purple mx-auto mb-4"></div>
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+              Take a look at our premium facilities and community
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryImages.map((image, index) => (
+              <div key={index} className="overflow-hidden rounded-lg shadow-lg transition-transform hover:scale-105 duration-300">
+                <AspectRatio ratio={16/9} className="bg-muted">
+                  <img 
+                    src={image} 
+                    alt={`Gym gallery image ${index+1}`} 
+                    className="object-cover w-full h-full hover:scale-110 transition-transform duration-500"
+                  />
+                </AspectRatio>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-10">
+            <Link to="/gallery">
+              <Button className="bg-gym-purple hover:bg-opacity-90 shadow-lg">
+                View Full Gallery
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* About/CTA Section */}
       <section className="py-16 md:py-24 bg-gym-light">
         <div className="container-custom">
@@ -143,12 +216,63 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Testimonial Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our <span className="text-gym-purple">Members</span> Say</h2>
+            <div className="w-20 h-1 bg-gym-purple mx-auto mb-4"></div>
+            <p className="text-lg text-gym-gray max-w-3xl mx-auto">
+              Don't just take our word for it - hear from our community
+            </p>
+          </div>
+
+          <Carousel 
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="bg-white rounded-xl shadow-lg p-8 h-full flex flex-col">
+                    <div className="flex items-center mb-4">
+                      <div className="mr-4">
+                        <img 
+                          src={testimonial.image} 
+                          alt={testimonial.name} 
+                          className="w-16 h-16 rounded-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="font-bold">{testimonial.name}</h3>
+                        <p className="text-sm text-gym-gray">{testimonial.role}</p>
+                      </div>
+                    </div>
+                    <p className="italic text-gym-gray flex-grow">{testimonial.content}</p>
+                    <div className="flex mt-4 text-gym-purple">
+                      ★★★★★
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="mt-8 flex justify-center gap-2">
+              <CarouselPrevious className="position-static position-override" />
+              <CarouselNext className="position-static position-override" />
+            </div>
+          </Carousel>
+        </div>
+      </section>
+
       {/* Classes Preview Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Popular <span className="text-gym-red">Classes</span></h2>
-            <div className="w-20 h-1 bg-gym-red mx-auto mb-4"></div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Popular <span className="text-gym-purple">Classes</span></h2>
+            <div className="w-20 h-1 bg-gym-purple mx-auto mb-4"></div>
             <p className="text-lg text-gym-gray max-w-3xl mx-auto">
               From high-intensity workouts to mind-body wellness, we offer a wide variety of classes to fit your fitness preferences.
             </p>
@@ -163,7 +287,7 @@ const HomePage = () => {
                   alt="HIIT Class" 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute top-4 right-4 bg-gym-red text-white text-sm px-3 py-1 rounded-full">
+                <div className="absolute top-4 right-4 bg-gym-purple text-white text-sm px-3 py-1 rounded-full">
                   High Intensity
                 </div>
               </div>
@@ -173,9 +297,9 @@ const HomePage = () => {
                   High-intensity interval training to maximize calorie burn and improve cardiovascular health.
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-gym-red font-semibold">Mon, Wed, Fri</span>
+                  <span className="text-gym-purple font-semibold">Mon, Wed, Fri</span>
                   <Link to="/classes">
-                    <Button variant="outline" className="border-gym-red text-gym-red hover:bg-gym-red hover:text-white">
+                    <Button variant="outline" className="border-gym-purple text-gym-purple hover:bg-gym-purple hover:text-white">
                       Learn More
                     </Button>
                   </Link>
@@ -201,9 +325,9 @@ const HomePage = () => {
                   Combination of strength, flexibility, and mindfulness to create balance in body and mind.
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-gym-red font-semibold">Tue, Thu, Sat</span>
+                  <span className="text-gym-purple font-semibold">Tue, Thu, Sat</span>
                   <Link to="/classes">
-                    <Button variant="outline" className="border-gym-red text-gym-red hover:bg-gym-red hover:text-white">
+                    <Button variant="outline" className="border-gym-purple text-gym-purple hover:bg-gym-purple hover:text-white">
                       Learn More
                     </Button>
                   </Link>
@@ -219,7 +343,7 @@ const HomePage = () => {
                   alt="Cycling Class" 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute top-4 right-4 bg-gym-red text-white text-sm px-3 py-1 rounded-full">
+                <div className="absolute top-4 right-4 bg-gym-purple text-white text-sm px-3 py-1 rounded-full">
                   Medium Intensity
                 </div>
               </div>
@@ -229,9 +353,9 @@ const HomePage = () => {
                   High-energy indoor cycling class set to motivating music and led by expert instructors.
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-gym-red font-semibold">Daily Classes</span>
+                  <span className="text-gym-purple font-semibold">Daily Classes</span>
                   <Link to="/classes">
-                    <Button variant="outline" className="border-gym-red text-gym-red hover:bg-gym-red hover:text-white">
+                    <Button variant="outline" className="border-gym-purple text-gym-purple hover:bg-gym-purple hover:text-white">
                       Learn More
                     </Button>
                   </Link>
@@ -242,7 +366,7 @@ const HomePage = () => {
           
           <div className="text-center mt-12">
             <Link to="/classes">
-              <Button size="lg" className="bg-gym-red hover:bg-opacity-90">
+              <Button size="lg" className="bg-gym-purple hover:bg-opacity-90">
                 View All Classes
               </Button>
             </Link>

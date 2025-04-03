@@ -19,12 +19,15 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80 transform hover:-translate-y-1",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        "outline-white": "border-2 border-white text-white hover:bg-white hover:text-gym-dark transform hover:-translate-y-1",
+        "outline-purple": "border-2 border-gym-purple text-gym-purple hover:bg-gym-purple hover:text-white transform hover:-translate-y-1",
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-12 rounded-md px-8 py-4 text-lg",
         icon: "h-10 w-10",
+        xl: "h-14 rounded-md px-10 py-6 text-lg"
       },
     },
     defaultVariants: {
