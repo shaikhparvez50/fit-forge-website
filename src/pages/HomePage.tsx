@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -11,6 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import FeatureCard from '@/components/FeatureCard';
 
 const HomePage = () => {
   const testimonials = [
@@ -41,6 +41,33 @@ const HomePage = () => {
     "https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
     "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
     "https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+  ];
+
+  const features = [
+    {
+      id: "equipment",
+      icon: "Dumbbell" as const,
+      title: "Modern Equipment",
+      description: "State-of-the-art fitness equipment to help you achieve your goals efficiently."
+    },
+    {
+      id: "trainers",
+      icon: "Users" as const,
+      title: "Expert Trainers",
+      description: "Certified personal trainers to guide you through your fitness journey."
+    },
+    {
+      id: "classes",
+      icon: "Award" as const,
+      title: "Premium Classes",
+      description: "Diverse range of group fitness classes for all levels and interests."
+    },
+    {
+      id: "access",
+      icon: "Clock" as const,
+      title: "24/7 Access",
+      description: "Workout on your schedule with our flexible 24/7 gym access."
+    }
   ];
   
   return (
@@ -89,49 +116,15 @@ const HomePage = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Feature 1 */}
-            <div className="bg-white p-8 rounded-lg shadow-lg text-center card-hover">
-              <div className="w-16 h-16 bg-gym-purple rounded-full flex items-center justify-center mx-auto mb-6">
-                <Dumbbell size={32} className="text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Modern Equipment</h3>
-              <p className="text-gym-gray">
-                State-of-the-art fitness equipment to help you achieve your goals efficiently.
-              </p>
-            </div>
-            
-            {/* Feature 2 */}
-            <div className="bg-white p-8 rounded-lg shadow-lg text-center card-hover">
-              <div className="w-16 h-16 bg-gym-purple rounded-full flex items-center justify-center mx-auto mb-6">
-                <Users size={32} className="text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Expert Trainers</h3>
-              <p className="text-gym-gray">
-                Certified personal trainers to guide you through your fitness journey.
-              </p>
-            </div>
-            
-            {/* Feature 3 */}
-            <div className="bg-white p-8 rounded-lg shadow-lg text-center card-hover">
-              <div className="w-16 h-16 bg-gym-purple rounded-full flex items-center justify-center mx-auto mb-6">
-                <Award size={32} className="text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Premium Classes</h3>
-              <p className="text-gym-gray">
-                Diverse range of group fitness classes for all levels and interests.
-              </p>
-            </div>
-            
-            {/* Feature 4 */}
-            <div className="bg-white p-8 rounded-lg shadow-lg text-center card-hover">
-              <div className="w-16 h-16 bg-gym-purple rounded-full flex items-center justify-center mx-auto mb-6">
-                <Clock size={32} className="text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">24/7 Access</h3>
-              <p className="text-gym-gray">
-                Workout on your schedule with our flexible 24/7 gym access.
-              </p>
-            </div>
+            {features.map((feature) => (
+              <FeatureCard
+                key={feature.id}
+                featureId={feature.id}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+              />
+            ))}
           </div>
         </div>
       </section>
