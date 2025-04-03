@@ -69,6 +69,33 @@ const HomePage = () => {
       description: "Workout on your schedule with our flexible 24/7 gym access."
     }
   ];
+
+  const classes = [
+    {
+      id: "hiit",
+      title: "HIIT Training",
+      description: "High-intensity interval training to maximize calorie burn and improve cardiovascular health.",
+      image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      intensity: "High Intensity",
+      schedule: "Mon, Wed, Fri"
+    },
+    {
+      id: "yoga",
+      title: "Power Yoga",
+      description: "Combination of strength, flexibility, and mindfulness to create balance in body and mind.",
+      image: "https://images.unsplash.com/photo-1593810450967-f9c6742a84c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      intensity: "Low Intensity",
+      schedule: "Tue, Thu, Sat"
+    },
+    {
+      id: "cycling",
+      title: "Spin Cycling",
+      description: "High-energy indoor cycling class set to motivating music and led by expert instructors.",
+      image: "https://images.unsplash.com/photo-1603287681836-b174ce5074c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+      intensity: "Medium Intensity",
+      schedule: "Daily Classes"
+    }
+  ];
   
   return (
     <>
@@ -76,7 +103,7 @@ const HomePage = () => {
       <section 
         className="h-screen relative flex flex-col justify-center items-center"
         style={{
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80)',
+          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
@@ -195,7 +222,7 @@ const HomePage = () => {
                 className="rounded-lg shadow-lg h-full object-cover mt-8"
               />
               <img 
-                src="https://images.unsplash.com/photo-1584466977773-e625c37cdd50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                src="https://images.unsplash.com/photo-1593810450967-f9c6742a84c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
                 alt="Weight training" 
                 className="rounded-lg shadow-lg h-full object-cover"
               />
@@ -272,89 +299,34 @@ const HomePage = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Class 1 */}
-            <div className="rounded-lg overflow-hidden shadow-lg card-hover">
-              <div className="relative h-64">
-                <img 
-                  src="https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                  alt="HIIT Class" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute top-4 right-4 bg-gym-purple text-white text-sm px-3 py-1 rounded-full">
-                  High Intensity
+            {classes.map((classItem) => (
+              <div key={classItem.id} className="rounded-lg overflow-hidden shadow-lg card-hover">
+                <div className="relative h-64">
+                  <img 
+                    src={classItem.image} 
+                    alt={`${classItem.title} Class`} 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className={`absolute top-4 right-4 ${classItem.intensity.includes('High') ? 'bg-gym-purple' : classItem.intensity.includes('Medium') ? 'bg-gym-purple' : 'bg-gym-gray'} text-white text-sm px-3 py-1 rounded-full`}>
+                    {classItem.intensity}
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">{classItem.title}</h3>
+                  <p className="text-gym-gray mb-4">
+                    {classItem.description}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-gym-purple font-semibold">{classItem.schedule}</span>
+                    <Link to="/classes">
+                      <Button variant="outline" className="border-gym-purple text-gym-purple hover:bg-gym-purple hover:text-white">
+                        Learn More
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">HIIT Training</h3>
-                <p className="text-gym-gray mb-4">
-                  High-intensity interval training to maximize calorie burn and improve cardiovascular health.
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-gym-purple font-semibold">Mon, Wed, Fri</span>
-                  <Link to="/classes">
-                    <Button variant="outline" className="border-gym-purple text-gym-purple hover:bg-gym-purple hover:text-white">
-                      Learn More
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            
-            {/* Class 2 */}
-            <div className="rounded-lg overflow-hidden shadow-lg card-hover">
-              <div className="relative h-64">
-                <img 
-                  src="https://images.unsplash.com/photo-1593810450967-f9c6742a84c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                  alt="Yoga Class" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute top-4 right-4 bg-gym-gray text-white text-sm px-3 py-1 rounded-full">
-                  Low Intensity
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Power Yoga</h3>
-                <p className="text-gym-gray mb-4">
-                  Combination of strength, flexibility, and mindfulness to create balance in body and mind.
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-gym-purple font-semibold">Tue, Thu, Sat</span>
-                  <Link to="/classes">
-                    <Button variant="outline" className="border-gym-purple text-gym-purple hover:bg-gym-purple hover:text-white">
-                      Learn More
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            
-            {/* Class 3 */}
-            <div className="rounded-lg overflow-hidden shadow-lg card-hover">
-              <div className="relative h-64">
-                <img 
-                  src="https://images.unsplash.com/photo-1603287681836-b174ce5074c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
-                  alt="Cycling Class" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute top-4 right-4 bg-gym-purple text-white text-sm px-3 py-1 rounded-full">
-                  Medium Intensity
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Spin Cycling</h3>
-                <p className="text-gym-gray mb-4">
-                  High-energy indoor cycling class set to motivating music and led by expert instructors.
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-gym-purple font-semibold">Daily Classes</span>
-                  <Link to="/classes">
-                    <Button variant="outline" className="border-gym-purple text-gym-purple hover:bg-gym-purple hover:text-white">
-                      Learn More
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
           
           <div className="text-center mt-12">

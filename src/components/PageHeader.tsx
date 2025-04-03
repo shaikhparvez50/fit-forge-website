@@ -5,16 +5,18 @@ interface PageHeaderProps {
   title: string;
   subtitle?: string;
   backgroundImage?: string;
+  className?: string;
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({ 
   title, 
   subtitle, 
-  backgroundImage = "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+  backgroundImage = "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+  className
 }) => {
   return (
     <div 
-      className="relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden"
+      className={`relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden ${className}`}
       style={{
         backgroundImage: `linear-gradient(to right, rgba(26, 31, 44, 0.9), rgba(139, 92, 246, 0.7)), url(${backgroundImage})`,
         backgroundSize: 'cover',
